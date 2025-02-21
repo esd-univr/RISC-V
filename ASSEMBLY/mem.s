@@ -1,6 +1,3 @@
-.data
-
-arr: .word 2, 4, 6, 8
-
-n: .word 9
-
+.section .data
+test_memory:
+    .word 0           # Reserve space for testing memory
