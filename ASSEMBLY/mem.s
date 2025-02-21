@@ -1,6 +1,4 @@
-.section .data
-another_test:
-	.word 5
+.data
 test_memory:
-    .word 10           # Reserve space for testing memory
+	.word 22
 

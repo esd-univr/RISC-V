@@ -46,7 +46,7 @@ module cpu_tb();
         #10;  // Time for instruction 5 (JALR)
 
         // Wait for some cycles to observe results
-        #5000;
+        #50000;
 
         // Check the outputs
         $display("iaddr = %h, pc = %h, x31 = %h", iaddr, pc, x31);

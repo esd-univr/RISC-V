@@ -31,8 +31,6 @@ module dmem #(
         if (we[1]) m[add1] <= dwdata[15:8];
         if (we[2]) m[add2] <= dwdata[23:16];
         if (we[3]) m[add3] <= dwdata[31:24];
-        $display(m[add0]);
-        $display(daddr);
     end
 endmodule
 

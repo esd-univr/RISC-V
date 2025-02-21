@@ -1,28 +1,5 @@
-# .text
-# 
-# main:   add     t0, x0, x0
-# 
-#              addi    t1, x0, 1
-# 
-#              la      t3, n
-# 
-#              lw      t3, 0(t3)
-# 
-# fib:       beq     t0, x0, finish
-# 
-#              add     t2, t1, t3
-# 
-#              mv      t3, t1
-# 
-#              mv      t1, t2
-# 
-#              addi    t0, t0, -1
-# 
-#              j       fib
-# 
-.section .text
-.global _start
-
+.text
+.globl _start
 _start:
     # Load values into registers
     li t0, 10         # t0 = 10
@@ -40,12 +17,10 @@ _start:
     ori  a2, t2, 8    # a2 = t2 | 8 (30 | 8 = 30)
 
     # Memory operations
-    lui t0, 0x0          # Load upper immediate for address 0x0000 into t0
-    sw t1, 0(t0)         # Store t1 at memory location 0x0000
-    lui t0, 0x0          # Load upper immediate for address 0x002C into t0
-    addi t0, t0, 0x2C    # Add the lower part of the address (0x002C)
-    sw t2, 0(t0)         # Store t2 at memory location 0x002C
-    lw a4, 0(t0)         # Load the value from memory location 0x002C into a4
+    la a3, test_memory        # Load address of test_memory into a3
+    lw t2, 0(a3)              # Load the value at test_memory into t2
+    addi t2, t2, 1            # Add 1 to the value in t2
+    sw t2, 0(a3)              # Store the updated value (t2) back to test_memory
 
     # Branching
     beq t2, t3, fail  # Should NOT branch (30 != 20)
