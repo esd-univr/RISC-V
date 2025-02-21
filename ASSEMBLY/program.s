@@ -1,3 +1,7 @@
+.data
+test_memory:
+	.word 22
+
 .text
 .globl _start
 _start:
@@ -17,7 +21,8 @@ _start:
     ori  a2, t2, 8    # a2 = t2 | 8 (30 | 8 = 30)
 
     # Memory operations
-    la a3, test_memory        # Load address of test_memory into a3
+    lui a3, %hi(test_memory) # Load upper 20 bits of test_memory address into a3
+    addi a3, a3, %lo(test_memory) # Add lower 12 bits of test_memory address to a3
     lw t2, 0(a3)              # Load the value at test_memory into t2
     addi t2, t2, 1            # Add 1 to the value in t2
     sw t2, 0(a3)              # Store the updated value (t2) back to test_memory
