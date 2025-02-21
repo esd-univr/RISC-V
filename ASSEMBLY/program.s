@@ -40,9 +40,12 @@ _start:
     ori  a2, t2, 8    # a2 = t2 | 8 (30 | 8 = 30)
 
     # Memory operations
-    la a3, test_memory
-    sw t2, 0(a3)      # Store t2 (30) at memory location
-    lw a4, 0(a3)      # Load from memory back into a4 (should be 30)
+    lui t0, 0x0          # Load upper immediate for address 0x0000 into t0
+    sw t1, 0(t0)         # Store t1 at memory location 0x0000
+    lui t0, 0x0          # Load upper immediate for address 0x002C into t0
+    addi t0, t0, 0x2C    # Add the lower part of the address (0x002C)
+    sw t2, 0(t0)         # Store t2 at memory location 0x002C
+    lw a4, 0(t0)         # Load the value from memory location 0x002C into a4
 
     # Branching
     beq t2, t3, fail  # Should NOT branch (30 != 20)
