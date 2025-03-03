@@ -3,7 +3,7 @@ ENTRY(_start)
 MEMORY
 {
     IMEM (rx) : ORIGIN = 0x0, LENGTH = 2M   /* Instructions start at 0x0 */
-    DMEM (rw) : ORIGIN = 0x10000, LENGTH = 2M /* Data starts at 0x10000 */
+    DMEM (rw) : ORIGIN = 0x1000, LENGTH = 2M /* Data starts at 0x10000 */
 }
 
 SECTIONS
