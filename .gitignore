@@ -2,3 +2,4 @@
 *.elf
 *.vvp
 *.vcd
+/ASSEMBLY/*.hex
