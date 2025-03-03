@@ -8,7 +8,7 @@ module imem(
 
     // Initialize memory from file
     initial begin
-        $readmemh("program.hex", memory);  // Read byte-split hex file
+        $readmemh("imem.hex", memory);  // Read byte-split hex file
     end
 
     // Assemble instruction from bytes

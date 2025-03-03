@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module dmem #(
-    parameter MEM_SIZE = 128  // Parameterize memory size
+    parameter MEM_SIZE = 10000000  // Parameterize memory size
 )(
     input clk,
     input [31:0] daddr,       // Address input
@@ -11,7 +11,7 @@ module dmem #(
 );
     // Memory array (byte-addressable)
     reg [7:0] m[0:MEM_SIZE-1];
-	initial $readmemh("mem.hex",m);
+	initial $readmemh("dmem.hex",m);
 	
     // Byte addresses derived from daddr
     wire [31:0] add0 = (daddr & 32'hFFFFFFFC) + 32'h00000000;
