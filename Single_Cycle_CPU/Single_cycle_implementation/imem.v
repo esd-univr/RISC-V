@@ -4,7 +4,7 @@ module imem(
     input [31:0] iaddr,       // Instruction address input
     output [31:0] idata       // Instruction data output
 );
-    reg [7:0] memory [0:127]; // Byte-addressable memory
+    reg [7:0] memory [0:1000000]; // Byte-addressable memory
 
     // Initialize memory from file
     initial begin

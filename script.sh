@@ -1,8 +1,10 @@
 cd ASSEMBLY/
-riscv64-unknown-elf-as -march=rv32i program.s -o program.o
-riscv64-unknown-elf-objcopy -O verilog program.o program.hex
-riscv64-unknown-elf-as -march=rv32i mem.s -o mem.o
-riscv64-unknown-elf-objcopy -O verilog mem.o mem.hex
+riscv32-unknown-elf-as -march=rv32i program.s -o program.o
+riscv32-unknown-elf-ld -o program.elf program.o
+riscv32-unknown-elf-objcopy -O verilog program.elf program.hex
+riscv32-unknown-elf-objcopy -O verilog -j .text program.elf program.hex
+riscv32-unknown-elf-objcopy -O verilog -j .data program.elf mem.hex
+
 cd ..
 cp ASSEMBLY/program.hex Single_Cycle_CPU/
 cp ASSEMBLY/mem.hex Single_Cycle_CPU/
