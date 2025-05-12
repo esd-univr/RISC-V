@@ -1,4 +1,4 @@
-cd ASSEMBLY/
+cd ASSEMBLY
 riscv32-unknown-elf-as -march=rv32i program.s -o program.o
 riscv32-unknown-elf-ld -T linker.ld program.o -o program.elf
 riscv32-unknown-elf-objcopy -O verilog -j .text program.elf imem.hex  # For instructions
