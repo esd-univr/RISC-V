@@ -8,7 +8,7 @@ module imem(
 
     // Initialize memory from file
     initial begin
-        $readmemh("imem.hex", memory);  // Read byte-split hex file
+        $readmemh("verilog/bin/imem.hex", memory);  // Read byte-split hex file
     end
 
     // Assemble instruction from bytes

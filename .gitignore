@@ -2,6 +2,4 @@
 *.elf
 *.vvp
 *.vcd
-/ASSEMBLY/*.hex
-software/bin/dmem.hex
-software/bin/imem.hex
+*.hex

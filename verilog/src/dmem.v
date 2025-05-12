@@ -11,7 +11,7 @@ module dmem #(
 );
     // Memory array (byte-addressable)
     reg [7:0] m[0:MEM_SIZE-1];
-	initial $readmemh("dmem.hex",m);
+	initial $readmemh("verilog/bin/dmem.hex",m);
 	
     // Byte addresses derived from daddr
     wire [31:0] add0 = (daddr & 32'hFFFFFFFC) + 32'h00000000;

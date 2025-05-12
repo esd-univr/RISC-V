@@ -28,7 +28,7 @@ module cpu_tb();
     initial begin
         
         // Open a VCD file for waveform dump
-        $dumpfile("pipeline_cpu_tb.vcd"); // Name of the VCD file
+        $dumpfile("verilog/output/simulazione.vcd"); // Name of the VCD file
         $dumpvars(0, cpu_tb);  // Dump all signals in the cpu_tb module
         // Initialize signals
         clk = 0;
