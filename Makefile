@@ -18,8 +18,10 @@ DMEM_HEX = $(SW)/bin/dmem.hex
 
 ICARUS=iverilog
 
+all: software simulation
 
-all: $(IMEM_HEX) $(DMEM_HEX) $(ELF)
+software: $(IMEM_HEX) $(DMEM_HEX) $(ELF)
+	@echo "Software compiled."
 	@mkdir -p $(SW)/obj $(SW)/bin 
 
 $(OBJ): $(SRC)
@@ -50,7 +52,7 @@ simulation: $(IMEM_HEX) $(DMEM_HEX) $(ELF)
 	cp $(DMEM_HEX) verilog/bin/dmem.hex
 	cp $(ELF) verilog/bin/program.elf
 	@echo "Compiling testbench and verilog model."
-	$(ICARUS) -o verilog/bin/simulazione.vvp verilog/cpu_tb.v verilog/src/*.v
+	$(ICARUS) -o verilog/bin/simulazione.vvp verilog/src/*.v
 	@echo "Running simulation."
 	verilog/bin/simulazione.vvp
 	@echo "Simulation finished. The simulation traces are in verilog/output/simulazione.vcd"
