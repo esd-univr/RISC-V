@@ -50,7 +50,6 @@ simulation: $(IMEM_HEX) $(DMEM_HEX) $(ELF)
 	mkdir -p verilog/output
 	cp $(IMEM_HEX) verilog/bin/imem.hex
 	cp $(DMEM_HEX) verilog/bin/dmem.hex
-	cp $(ELF) verilog/bin/program.elf
 	@echo "Compiling testbench and verilog model."
 	$(ICARUS) -o verilog/bin/simulazione.vvp verilog/src/*.v
 	@echo "Running simulation."
